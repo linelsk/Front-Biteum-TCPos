@@ -1,0 +1,98 @@
+<ngx-ui-loader></ngx-ui-loader>
+<mat-card>
+  <mat-card-content>
+    <h2>Log In</h2>
+    <div class="container-logo p-5">
+      <!-- img src="assets/logo-login.png" style="height: 150px;"/ -->
+      <img src="https://dummyimage.com/200x200/F3EFEF/000&text=Aqu%C3%AD+el+logo" class="img-responsive" />
+    </div>
+    <form [formGroup]="formlogin" (ngSubmit)="onSubmit(formlogin.value)" *ngIf="section_active == 'login'">
+      <mat-error *ngIf="loginInvalid">
+        The username and password were not recognized
+      </mat-error>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Password" formControlName="password" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <button mat-stroked-button>Login</button>
+      <br />
+      <br />
+      <a style="cursor:pointer" (click)="showSection('register')"><b>Registrarse</b></a>
+      <br />
+      <a style="cursor:pointer" (click)="showSection('changePassword')">Olvide mi contraseña</a>
+    </form>
+    <form [formGroup]="formRegister" (ngSubmit)="onSubmit(formRegister.value)" *ngIf="section_active == 'register'">
+      <mat-error *ngIf="loginInvalid">
+        The username and password were not recognized
+      </mat-error>
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Correo electrónico" formControlName="email" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Contraseña" formControlName="password" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="password" placeholder="Repetir contraseña" formControlName="repeatpassword" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="text" placeholder="Nombre" formControlName="name" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="text" placeholder="Apellido paterno" formControlName="lastName" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="text" placeholder="Apellido materno" formControlName="motherLastName" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      <mat-form-field class="full-width-input">
+        <input matInput type="number" placeholder="Número telefonico" formControlName="phonenumber" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+      
+      <button mat-stroked-button>Registrar</button>
+      <br />
+      <br />
+      <a style="cursor:pointer" (click)="showSection('login')"><b>Login</b></a>
+    </form>
+    <form [formGroup]="formChancePassword" (ngSubmit)="onSubmit(formChancePassword.value)" *ngIf="section_active == 'changePassword'">
+    
+      <mat-form-field class="full-width-input">
+        <input matInput placeholder="Email" formControlName="email" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+      <button mat-stroked-button>Enviar</button>
+      <br />
+      <br />
+      <a style="cursor:pointer" (click)="showSection('login')"><b>Login</b></a>
+    </form>
+  </mat-card-content>
+</mat-card>

@@ -1,0 +1,58 @@
+<div class="content-int">
+  <div fxLayout="row wrap" fxLayoutGap="16px">
+    <h1 style="padding: 10px;">Mi perfil</h1>
+  </div>
+</div>
+
+<div class="content-int" style="padding-bottom:18.5%;">
+  <form fxLayout="column" style="padding-left:100px; padding-right:100px" [formGroup]="formRegister">
+    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Nombre de comercio" formControlName="nameStore" required>
+        <mat-error>
+          Please provide a valid name
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Nombre" formControlName="name" required>
+        <mat-error>
+          Please provide a valid name
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput placeholder="Apellido paterno" formControlName="lastName" required>
+        <mat-error>
+          Please provide a valid email address
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput type="text" placeholder="Apellido materno" formControlName="motherLastName">
+      </mat-form-field>
+
+      <mat-form-field fxFlex>
+        <input matInput type="number" placeholder="Número telefonico" formControlName="phonenumber" required>
+        <mat-error>
+          Please provide a valid password
+        </mat-error>
+      </mat-form-field>
+    </div>
+    <div class="input-row" fxLayout="row" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+      <mat-form-field fxFlex appearance="outline">
+        <mat-label>Basic outline input</mat-label>
+        <ngx-mat-file-input formControlName="basicfile" placeholder="Basic outline placeholder"></ngx-mat-file-input>
+        <mat-icon matSuffix>folder</mat-icon>
+      </mat-form-field>
+    </div>
+
+    <div class="input-row" fxLayout="row" fxLayoutAlign="end start" fxLayout.lt-md="column" fxLayoutGap="20px" fxLayoutGap.lt-md="0px">
+      <button mat-raised-button color="primary" (click)="save(formRegister.value)">Guardar</button>
+    </div>
+   
+  </form>
+</div>
+
+

@@ -1,0 +1,77 @@
+<ngx-ui-loader></ngx-ui-loader>
+<mat-toolbar class="mat-elevation-z6">
+  <button mat-icon-button *ngIf="sidenav.mode === 'over'" (click)="sidenav.toggle()">
+    <mat-icon *ngIf="!sidenav.opened">
+      menu
+    </mat-icon>
+    <mat-icon *ngIf="sidenav.opened">
+      close
+    </mat-icon>
+  </button>
+  <span>{{user.company_name}}</span>
+  <span class="example-spacer"></span>
+  <button mat-icon-button [matMenuTriggerFor]="menuPerfil" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>account_circle</mat-icon>
+  </button>
+  <mat-menu #menuPerfil="matMenu">
+    <button routerLink="/profile" mat-menu-item>
+      <mat-icon>perm_identity</mat-icon>
+      <span style="cursor:pointer">Mi perfil</span>
+    </button>
+    <button mat-menu-item (click)="logout()">
+      <mat-icon>reply_all</mat-icon>
+      <span>Salir</span>
+    </button>
+  </mat-menu>
+  <button mat-icon-button [matMenuTriggerFor]="menu" class="example-icon" aria-label="Example icon-button with menu icon">
+    <mat-icon>language</mat-icon>
+  </button>
+  <mat-menu #menu="matMenu">
+    <!--<button mat-menu-item>
+      <mat-icon>perm_identity</mat-icon>
+      <span>Mi perfil</span>
+    </button>
+    <button mat-menu-item>
+      <mat-icon>reply_all</mat-icon>
+      <span (click)="logout()">Salir</span>
+    </button>-->
+  </mat-menu>
+</mat-toolbar>
+
+<mat-sidenav-container>
+  <mat-sidenav #sidenav="matSidenav" class="mat-elevation-z8">
+
+    <img class="avatar mat-elevation-z8" src="https://source.unsplash.com/random" />
+
+    <h4 class="name">{{user.company_name}}</h4>
+
+    <mat-divider></mat-divider>
+
+    <button mat-button routerLink="/sale" class="menu-button">
+      <mat-icon>store</mat-icon>
+      <span style="font-size: 0.85rem !important; letter-spacing: 1.5px">Ventas</span>
+    </button>
+    <button mat-button routerLink="/order" class="menu-button">
+      <mat-icon>shopping_cart</mat-icon>
+      <span style="font-size: 0.85rem !important; letter-spacing: 1.5px">Surtir</span>
+    </button>
+    <!--<button mat-button class="menu-button">
+      <mat-icon>info</mat-icon>
+      <span>About</span>
+    </button>-->
+
+    <mat-divider></mat-divider>
+
+    <button mat-button routerLink="/administrator" class="menu-button">
+      <mat-icon>verified_user</mat-icon>
+      <span style="font-size: 0.85rem !important; letter-spacing: 1.5px">Administrador</span>
+    </button>
+
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <div class="content mat-elevation-z8">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
